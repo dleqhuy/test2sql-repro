@@ -1,0 +1,6 @@
+# All paths are relative to root, which is relative to this config file.
+root: ..
+methods_file: configs/methods.yaml
+spider_data_dir: data/spider
+test_suite_db_dir: data/test-suite-databases
+output_dir: results

@@ -4,7 +4,7 @@
 
 ## Phạm vi và mức xác minh
 
-Khảo sát ngày **2026-10-19**, trên các checkout tạm độc lập; không sửa source repo con, không gọi LLM, không đọc `.env` của repo chính. Các SHA dưới đây là revision **chốt để pin ở Phase 2**, chưa phải submodule đã được thêm.
+Khảo sát ngày **2026-10-19**, trên các checkout tạm độc lập; không sửa source repo con, không gọi LLM, không đọc `.env` của repo chính. Các SHA dưới đây đã được **pin thành Git submodules ở Phase 2** trong `external/`, khớp `environments/manifest.json`.
 
 Đã đối chiếu source, requirements, README và CLI. Đã parse AST 57 file Python và chạy 5 probe parser lấy trực tiếp các câu lệnh argparse trong source. Đây là kiểm tra parser cô lập, **không phải chạy thành công toàn bộ entry point**. Sáu lần gọi `--help` đều dừng ở import do máy khảo sát thiếu dependencies. Trong audit Phase 1 chưa cài môi trường method hoặc chạy inference, preprocessing, resume thực tế hay benchmark evaluator. Môi trường được bổ sung ở bước tiếp theo, ghi riêng bên dưới. [Bằng chứng JSON](phases/evidence/01-audit.json) lưu SHA nguồn, command, exit code, lỗi và working-tree status; [script tái kiểm tra](phases/evidence/audit_phase1.py) không cần dependencies ngoài thư viện chuẩn.
 

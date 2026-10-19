@@ -1,0 +1,12 @@
+[submodule "external/few-shot-nl2sql"]
+	path = external/few-shot-nl2sql
+	url = https://github.com/dleqhuy/Few-shot-NL2SQL-with-prompting
+[submodule "external/mac-sql"]
+	path = external/mac-sql
+	url = https://github.com/dleqhuy/MAC-SQL
+[submodule "external/dail-sql"]
+	path = external/dail-sql
+	url = https://github.com/dleqhuy/DAIL-SQL
+[submodule "external/test-suite-sql-eval"]
+	path = external/test-suite-sql-eval
+	url = https://github.com/taoyds/test-suite-sql-eval

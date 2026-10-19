@@ -1,0 +1,14 @@
+# Revisions and Python versions come from environments/manifest.json.
+# Python paths below may be replaced with absolute paths on another host.
+few-shot:
+  repository: external/few-shot-nl2sql
+  python: .venvs/few-shot/bin/python
+mac-sql:
+  repository: external/mac-sql
+  python: .venvs/mac-sql/bin/python
+dail-sql:
+  repository: external/dail-sql
+  python: .venvs/dail-sql/bin/python
+evaluator:
+  repository: external/test-suite-sql-eval
+  python: .venvs/evaluator/bin/python

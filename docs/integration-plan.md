@@ -32,7 +32,7 @@ Phạm vi ban đầu là Spider dev, chạy tuần tự trên một tập nhỏ 
 - Theo thông tin người dùng, ba fork đã được sửa để nhận cấu hình LLM qua environment.
 - Đã khảo sát source và command của ba fork `dleqhuy` tại revision cụ thể ngày 2026-10-19; xem [contract và giới hạn runtime](method-contracts.md). Phase 1 đã hoàn thành ở mức kiểm tra source/parser, chưa chạy inference.
 - README upstream của Few-shot/DIN-SQL có entry point `DIN-SQL.py --dataset ... --output ...`. Đây chỉ là tham khảo, không mặc định fork có cùng giao diện.
-- Các command `test2sql` trong tài liệu này là giao diện dự kiến, chưa phải command đã triển khai hoặc kiểm chứng.
+- Phase 2 đã triển khai `test2sql doctor` và `test2sql run --dry-run`; inference, evaluate và report vẫn là giao diện dự kiến cho các phase sau.
 
 ## 3. Nguyên tắc tích hợp
 
@@ -125,7 +125,7 @@ OUTPUT_DIR=./results
 | Phase | Phạm vi | Phụ thuộc | Trạng thái |
 | --- | --- | --- | --- |
 | 1 | [Khảo sát và chốt contract](phases/01-audit.md) | — | Hoàn thành |
-| 2 | [Dựng repo chính và môi trường](phases/02-bootstrap.md) | 1 | Đang thực hiện |
+| 2 | [Dựng repo chính và môi trường](phases/02-bootstrap.md) | 1 | Hoàn thành |
 | 3 | [Chuẩn bị Spider và kiểm tra evaluator](phases/03-dataset-evaluator.md) | 2 | Chưa bắt đầu |
 | 4 | [Chạy Few-shot/DIN-SQL qua CLI chính](phases/04-few-shot.md) | 3 | Chưa bắt đầu |
 | 5 | [Tích hợp MAC-SQL và DAIL-SQL](phases/05-mac-dail.md) | 4 | Chưa bắt đầu |
@@ -144,7 +144,7 @@ OUTPUT_DIR=./results
 
 ## 7. CLI mục tiêu
 
-Các command sau là giao diện dự kiến, cần được triển khai và xác nhận theo từng phase:
+Doctor và dry-run đã triển khai ở Phase 2. Các command thực thi inference/evaluate/report dưới đây là giao diện dự kiến cho các phase sau:
 
 ```bash
 # Kiểm tra môi trường

@@ -3,13 +3,20 @@ name = "test2sql-repro"
 version = "0.1.0"
 description = "Reproducible environments and orchestration for NL2SQL methods"
 requires-python = "==3.10.*"
-dependencies = []
+dependencies = ["python-dotenv==1.0.1", "PyYAML==6.0.3", "tomli==2.4.0", "packaging==23.0"]
 
 [dependency-groups]
 dev = ["ruff==0.17.1"]
 
-[tool.uv]
-package = false
+[build-system]
+requires = ["hatchling==1.27.0"]
+build-backend = "hatchling.build"
+
+[project.scripts]
+test2sql = "test2sql.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/test2sql"]
 
 [tool.ruff]
 target-version = "py310"

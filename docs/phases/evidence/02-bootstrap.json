@@ -1,0 +1,222 @@
+{
+  "date": "2026-10-19",
+  "scope": "Phase 2 bootstrap; no inference, dataset download or evaluation",
+  "checks": {
+    "locked_sync": "passed",
+    "ruff_check": "passed",
+    "ruff_format_check": "passed",
+    "unittest": {
+      "command": "uv run --locked python -m unittest discover -s tests -v",
+      "tests": 13,
+      "result": "passed"
+    },
+    "submodule_init": "passed"
+  },
+  "submodules": {
+    "external/few-shot-nl2sql": {
+      "revision": "fe9d2ea39711dafaba7e0f0621513b9ab9646187",
+      "status": ""
+    },
+    "external/mac-sql": {
+      "revision": "f8ca56f20192fe85b65a2542f917f820910e80d6",
+      "status": ""
+    },
+    "external/dail-sql": {
+      "revision": "7df99e15d8916a35711ff13735fd5ee01262c10e",
+      "status": ""
+    },
+    "external/test-suite-sql-eval": {
+      "revision": "e97acc546ecbee8fa27fa8dbf025ef61493a876c",
+      "status": ""
+    }
+  },
+  "doctor": {
+    "command": "uv run --locked test2sql doctor --json",
+    "exit_code": 1,
+    "checks": [
+      {
+        "name": "LLM_BASE_URL",
+        "status": "ok",
+        "detail": "configured"
+      },
+      {
+        "name": "LLM_API_KEY",
+        "status": "ok",
+        "detail": "configured"
+      },
+      {
+        "name": "LLM_MODEL",
+        "status": "ok",
+        "detail": "configured"
+      },
+      {
+        "name": "LLM URL",
+        "status": "ok",
+        "detail": "HTTP(S) URL required; no network request performed"
+      },
+      {
+        "name": "few-shot revision",
+        "status": "ok",
+        "detail": "fe9d2ea39711dafaba7e0f0621513b9ab9646187; expected fe9d2ea39711dafaba7e0f0621513b9ab9646187"
+      },
+      {
+        "name": "few-shot checkout",
+        "status": "ok",
+        "detail": "clean"
+      },
+      {
+        "name": "few-shot DIN-SQL.py",
+        "status": "ok",
+        "detail": "/Users/huyduong/Documents/github/test2sql-repro/external/few-shot-nl2sql/DIN-SQL.py"
+      },
+      {
+        "name": "few-shot Python",
+        "status": "ok",
+        "detail": "/Users/huyduong/Documents/github/test2sql-repro/.venvs/few-shot/bin/python: 3.10; expected 3.10"
+      },
+      {
+        "name": "few-shot dependencies",
+        "status": "ok",
+        "detail": "Runtime package versions match uv.lock for this platform (metadata check)"
+      },
+      {
+        "name": "mac-sql revision",
+        "status": "ok",
+        "detail": "f8ca56f20192fe85b65a2542f917f820910e80d6; expected f8ca56f20192fe85b65a2542f917f820910e80d6"
+      },
+      {
+        "name": "mac-sql checkout",
+        "status": "ok",
+        "detail": "clean"
+      },
+      {
+        "name": "mac-sql run.py",
+        "status": "ok",
+        "detail": "/Users/huyduong/Documents/github/test2sql-repro/external/mac-sql/run.py"
+      },
+      {
+        "name": "mac-sql Python",
+        "status": "ok",
+        "detail": "/Users/huyduong/Documents/github/test2sql-repro/.venvs/mac-sql/bin/python: 3.9; expected 3.9"
+      },
+      {
+        "name": "mac-sql dependencies",
+        "status": "ok",
+        "detail": "Runtime package versions match uv.lock for this platform (metadata check)"
+      },
+      {
+        "name": "dail-sql revision",
+        "status": "ok",
+        "detail": "7df99e15d8916a35711ff13735fd5ee01262c10e; expected 7df99e15d8916a35711ff13735fd5ee01262c10e"
+      },
+      {
+        "name": "dail-sql checkout",
+        "status": "ok",
+        "detail": "clean"
+      },
+      {
+        "name": "dail-sql data_preprocess.py",
+        "status": "ok",
+        "detail": "/Users/huyduong/Documents/github/test2sql-repro/external/dail-sql/data_preprocess.py"
+      },
+      {
+        "name": "dail-sql generate_question.py",
+        "status": "ok",
+        "detail": "/Users/huyduong/Documents/github/test2sql-repro/external/dail-sql/generate_question.py"
+      },
+      {
+        "name": "dail-sql ask_llm.py",
+        "status": "ok",
+        "detail": "/Users/huyduong/Documents/github/test2sql-repro/external/dail-sql/ask_llm.py"
+      },
+      {
+        "name": "dail-sql Python",
+        "status": "ok",
+        "detail": "/Users/huyduong/Documents/github/test2sql-repro/.venvs/dail-sql/bin/python: 3.8; expected 3.8"
+      },
+      {
+        "name": "dail-sql dependencies",
+        "status": "ok",
+        "detail": "Runtime package versions match uv.lock for this platform (metadata check)"
+      },
+      {
+        "name": "evaluator revision",
+        "status": "ok",
+        "detail": "e97acc546ecbee8fa27fa8dbf025ef61493a876c; expected e97acc546ecbee8fa27fa8dbf025ef61493a876c"
+      },
+      {
+        "name": "evaluator checkout",
+        "status": "ok",
+        "detail": "clean"
+      },
+      {
+        "name": "evaluator evaluation.py",
+        "status": "ok",
+        "detail": "/Users/huyduong/Documents/github/test2sql-repro/external/test-suite-sql-eval/evaluation.py"
+      },
+      {
+        "name": "evaluator Python",
+        "status": "ok",
+        "detail": "/Users/huyduong/Documents/github/test2sql-repro/.venvs/evaluator/bin/python: 3.10; expected 3.10"
+      },
+      {
+        "name": "evaluator dependencies",
+        "status": "ok",
+        "detail": "Runtime package versions match uv.lock for this platform (metadata check)"
+      },
+      {
+        "name": "dev.json",
+        "status": "error",
+        "detail": "Missing/invalid Spider JSON: /Users/huyduong/Documents/github/test2sql-repro/data/spider/dev.json"
+      },
+      {
+        "name": "tables.json",
+        "status": "error",
+        "detail": "Missing/invalid Spider JSON: /Users/huyduong/Documents/github/test2sql-repro/data/spider/tables.json"
+      },
+      {
+        "name": "Spider databases",
+        "status": "error",
+        "detail": "/Users/huyduong/Documents/github/test2sql-repro/data/spider/database; install separately (Phase 3)"
+      },
+      {
+        "name": "Test-suite databases",
+        "status": "error",
+        "detail": "/Users/huyduong/Documents/github/test2sql-repro/data/test-suite-databases; install separately (Phase 3)"
+      },
+      {
+        "name": "Test-suite provenance",
+        "status": "warning",
+        "detail": "File presence does not verify suite provenance or metric correctness; Phase 3 validates evaluation"
+      },
+      {
+        "name": "DAIL train_spider.json",
+        "status": "error",
+        "detail": "/Users/huyduong/Documents/github/test2sql-repro/data/spider/train_spider.json"
+      },
+      {
+        "name": "DAIL train_others.json",
+        "status": "error",
+        "detail": "/Users/huyduong/Documents/github/test2sql-repro/data/spider/train_others.json"
+      },
+      {
+        "name": "DAIL resources",
+        "status": "warning",
+        "detail": "Java/CoreNLP 2018-10-05, GloVe, embedding weights and NLTK data require separate setup; see environments/README.md. Not verified by metadata checks."
+      },
+      {
+        "name": "runtime scope",
+        "status": "warning",
+        "detail": "No inference, preprocessing, resource downloads or evaluator execution performed"
+      }
+    ]
+  },
+  "dry_run": {
+    "command": "uv run --locked test2sql run --method all --split dev --limit 3 --run-id phase2-verification --dry-run --json",
+    "exit_code": 0,
+    "stages": 7,
+    "credentials_absent": true,
+    "results_created": false,
+    "checkout_changes": false
+  }
+}
