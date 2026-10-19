@@ -1,0 +1,18 @@
+[project]
+name = "test2sql-env-mac-sql"
+version = "0.1.0"
+requires-python = "==3.9.*"
+dependencies = [
+    "openai==0.28.1",
+    "func_timeout",
+    "sqlparse",
+    "requests",
+    "pandas",
+    "tiktoken",
+    "tqdm",
+    "nltk",
+    "flask",
+]
+
+[tool.uv]
+package = false

@@ -1,0 +1,24 @@
+[project]
+name = "test2sql-env-dail-sql"
+version = "0.1.0"
+requires-python = "==3.8.*"
+dependencies = [
+    "protobuf==3.20.*",
+    "tqdm",
+    "openai>=0.27,<1",
+    "numpy<2",
+    "transformers==4.26.1",
+    "torch==1.13.1",
+    "stanford-corenlp",
+    "sql_metadata",
+    "bpemb",
+    "torchtext==0.14.1",
+    "sentence-transformers==2.2.2",
+    "attrs",
+    "nltk",
+    "huggingface-hub==0.12.1",
+    "networkx==3.1",
+]
+
+[tool.uv]
+package = false

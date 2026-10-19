@@ -1,0 +1,30 @@
+{
+  "few-shot": {
+    "python": "3.10",
+    "project": "environments/few-shot",
+    "environment": ".venvs/few-shot",
+    "repository": "https://github.com/dleqhuy/Few-shot-NL2SQL-with-prompting",
+    "revision": "fe9d2ea39711dafaba7e0f0621513b9ab9646187"
+  },
+  "mac-sql": {
+    "python": "3.9",
+    "project": "environments/mac-sql",
+    "environment": ".venvs/mac-sql",
+    "repository": "https://github.com/dleqhuy/MAC-SQL",
+    "revision": "f8ca56f20192fe85b65a2542f917f820910e80d6"
+  },
+  "dail-sql": {
+    "python": "3.8",
+    "project": "environments/dail-sql",
+    "environment": ".venvs/dail-sql",
+    "repository": "https://github.com/dleqhuy/DAIL-SQL",
+    "revision": "7df99e15d8916a35711ff13735fd5ee01262c10e"
+  },
+  "evaluator": {
+    "python": "3.10",
+    "project": "environments/evaluator",
+    "environment": ".venvs/evaluator",
+    "repository": "https://github.com/taoyds/test-suite-sql-eval",
+    "revision": "e97acc546ecbee8fa27fa8dbf025ef61493a876c"
+  }
+}
