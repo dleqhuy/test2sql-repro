@@ -32,7 +32,7 @@ Phạm vi ban đầu là Spider dev, chạy tuần tự trên một tập nhỏ 
 - Theo thông tin người dùng, ba fork đã được sửa để nhận cấu hình LLM qua environment.
 - Đã khảo sát source và command của ba fork `dleqhuy` tại revision cụ thể ngày 2026-10-19; xem [contract và giới hạn runtime](method-contracts.md). Phase 1 đã hoàn thành ở mức kiểm tra source/parser, chưa chạy inference.
 - README upstream của Few-shot/DIN-SQL có entry point `DIN-SQL.py --dataset ... --output ...`. Đây chỉ là tham khảo, không mặc định fork có cùng giao diện.
-- Phase 2 đã triển khai `test2sql doctor` và `test2sql run --dry-run`; inference, evaluate và report vẫn là giao diện dự kiến cho các phase sau.
+- Phase 2–3 đã triển khai `doctor`, `run --dry-run`, `prepare`, `check-evaluator` và `evaluate --predictions PATH`. Inference và report vẫn thuộc các phase sau.
 
 ## 3. Nguyên tắc tích hợp
 
@@ -126,7 +126,7 @@ OUTPUT_DIR=./results
 | --- | --- | --- | --- |
 | 1 | [Khảo sát và chốt contract](phases/01-audit.md) | — | Hoàn thành |
 | 2 | [Dựng repo chính và môi trường](phases/02-bootstrap.md) | 1 | Hoàn thành |
-| 3 | [Chuẩn bị Spider và kiểm tra evaluator](phases/03-dataset-evaluator.md) | 2 | Chưa bắt đầu |
+| 3 | [Chuẩn bị Spider và kiểm tra evaluator](phases/03-dataset-evaluator.md) | 2 | Hoàn thành |
 | 4 | [Chạy Few-shot/DIN-SQL qua CLI chính](phases/04-few-shot.md) | 3 | Chưa bắt đầu |
 | 5 | [Tích hợp MAC-SQL và DAIL-SQL](phases/05-mac-dail.md) | 4 | Chưa bắt đầu |
 | 6 | [Report và đánh giá lại](phases/06-reporting.md) | 5 | Chưa bắt đầu |
@@ -144,7 +144,7 @@ OUTPUT_DIR=./results
 
 ## 7. CLI mục tiêu
 
-Doctor và dry-run đã triển khai ở Phase 2. Các command thực thi inference/evaluate/report dưới đây là giao diện dự kiến cho các phase sau:
+Doctor/dry-run đã triển khai ở Phase 2; prepare/check-evaluator và evaluate với --predictions đã triển khai ở Phase 3. Các command inference/report và tự tìm prediction dưới đây là giao diện mục tiêu cho các phase sau:
 
 ```bash
 # Kiểm tra môi trường
@@ -160,7 +160,7 @@ test2sql run --method few-shot --split dev --limit 3
 test2sql run --method all --split dev --limit 10
 
 # Đánh giá và tổng hợp từ output đã lưu
-test2sql evaluate --run-id <run_id>
+test2sql evaluate --run-id <run_id> --predictions <prediction-file>
 test2sql report --run-id <run_id>
 ```
 

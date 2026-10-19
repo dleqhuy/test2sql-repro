@@ -191,3 +191,9 @@ Runtime khảo sát: parser cô lập chấp nhận template; full help exit 1 d
 4. **Phase 5:** MAC staging ID + JSONL mapping; DAIL workspace riêng, schema-linking theo subset, hai lượt retrieval với pre-SQL cùng subset. Kiểm tra thực tế các giới hạn đã nêu trước khi bật resume hoặc self-consistency.
 
 Phase 1 hoàn tất ở mức khảo sát source cho phép trong kế hoạch. Chưa có cam kết dependency installation hay inference thành công trước các kiểm tra runtime ở phase tương ứng.
+
+## Cập nhật Phase 3
+
+Đã tải dữ liệu chính thức và kiểm chứng evaluator trên subset `[0, 2, 100]`: gold đạt execution/exact 1.000, wrong/invalid đạt 0.000 với count=3. Wrapper giữ raw logs, validate đầy đủ prediction/mapping và test-suite variants, chạy trên database copies, kiểm tra timeout ngoài subprocess. Xem [kết quả Phase 3](phases/03-dataset-evaluator.md) và [evidence](phases/evidence/03-dataset-evaluator.json). Những ghi chú chưa chạy evaluation ở phần Runtime khảo sát phía trên vẫn mô tả Phase 1.
+
+Staging DAIL bổ sung `train_spider_and_others.json` theo thứ tự hai split mà `data_preprocess.py` sử dụng; giữ `train_gold.sql` chính thức byte-for-byte. Gold train có khác biệt tab/literal với JSON, không được tự sửa để tạo lại gold. Dev gold được tạo từ query của subset. Chưa chạy DAIL preprocessing/generation hoặc LLM.

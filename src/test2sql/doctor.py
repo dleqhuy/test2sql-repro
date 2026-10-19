@@ -236,7 +236,7 @@ print(json.dumps({"python": marker["python_version"], "markers": marker,
     add(
         "Test-suite provenance",
         False,
-        "File presence does not verify suite provenance or metric correctness; Phase 3 validates evaluation",
+        "File presence does not verify suite provenance or metric correctness; run check-evaluator on a prepared subset",
         warning=True,
     )
     if method in ("all", "dail-sql"):

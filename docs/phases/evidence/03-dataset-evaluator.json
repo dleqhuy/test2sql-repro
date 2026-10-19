@@ -1,0 +1,347 @@
+{
+  "date": "2026-10-19",
+  "scope": "Phase 3 harness validation, not model benchmark; no LLM calls or method preprocessing/inference",
+  "commands": [
+    "uv run --locked python scripts/setup_data.py",
+    "uv run --locked test2sql prepare --method all --indices 0 2 100 --run-id phase3-verified",
+    "uv run --locked test2sql prepare --method few-shot --indices 0 2 100 --run-id phase3-subset-repeat",
+    "uv run --locked test2sql check-evaluator --run-id phase3-verified --timeout 120",
+    "uv run --locked test2sql evaluate --run-id phase3-verified --predictions results/runs/phase3-verified/predictions/gold-reversed.jsonl --label jsonl-gold --timeout 120",
+    "uv run --locked test2sql doctor --json"
+  ],
+  "datasets": {
+    "spider": {
+      "source": "https://drive.google.com/file/d/1403EGqzIDoHMdQF4c9Bkyl7dZLZ5Wt6J/view",
+      "source_page": "https://yale-lily.github.io/spider",
+      "archive": {
+        "filename": "spider_data.zip",
+        "sha256": "00636695dabed6b5f4b8328a16b13e069a2f16591d5efcce57660669c85b121b",
+        "bytes": 205800266
+      },
+      "dev_count": 1034,
+      "schema_count": 166,
+      "database_count": 166,
+      "file_count": 172,
+      "provenance": {
+        "sha256": "75050a277f83e811da36b1e28b027051f461078e19dcb73f816f584c35ba9e78",
+        "bytes": 46491
+      },
+      "installed_files_verified_unchanged": true
+    },
+    "test_suite": {
+      "source": "https://drive.google.com/file/d/1mkCx2GOFIqNesD4y8TDAO1yX1QZORP5w/view",
+      "source_page": "https://github.com/taoyds/test-suite-sql-eval",
+      "archive": {
+        "filename": "testsuitedatabases.zip",
+        "sha256": "9ec24ea8debc6bd04abfe137b5f1a739b5a8836f32c0464e4dfc94eb7f41da96",
+        "bytes": 1269456098
+      },
+      "database_count": 20,
+      "sqlite_file_count": 695,
+      "provenance": {
+        "sha256": "5a1c32fb999eb8344ca3af52f20d0b13e39cd28fc311536461a41270079537d0",
+        "bytes": 170046
+      },
+      "installed_files_verified_unchanged": true
+    }
+  },
+  "run": {
+    "run_id": "phase3-verified",
+    "subset": {
+      "version": 1,
+      "split": "dev",
+      "source": {
+        "path": "/Users/huyduong/Documents/github/test2sql-repro/data/spider/dev.json",
+        "sha256": "30d64a3fccde493226df79687aed9e4a1c0129525baf44f29c0573d914d758a4",
+        "bytes": 3629512
+      },
+      "selection": "explicit-indices",
+      "examples": [
+        {
+          "example_id": "spider-dev-0000",
+          "source_index": 0,
+          "db_id": "concert_singer"
+        },
+        {
+          "example_id": "spider-dev-0002",
+          "source_index": 2,
+          "db_id": "concert_singer"
+        },
+        {
+          "example_id": "spider-dev-0100",
+          "source_index": 100,
+          "db_id": "car_1"
+        }
+      ]
+    },
+    "subset_sha256": "c418c7f82e87973da2d0b6f125e570f20ba7306ce0ef12bea8a5a5afcc0f7c8f",
+    "manifest": {
+      "path": "results/runs/phase3-verified/manifest.json",
+      "sha256": "68bceeb2049b93cf5969d208b17421ed1c5bd444f09be14464534bf314243a0b",
+      "bytes": 59426
+    },
+    "same_subset_recreated": true,
+    "three_method_inputs_same_mapping": true,
+    "mac_local_ids": [
+      0,
+      1,
+      2
+    ],
+    "gold_count": 3
+  },
+  "evaluation": {
+    "smoke-gold": {
+      "status": "completed",
+      "evaluator_revision": "e97acc546ecbee8fa27fa8dbf025ef61493a876c",
+      "flags": {
+        "etype": "all",
+        "plug_value": false,
+        "keep_distinct": true
+      },
+      "database_mode": "test-suite",
+      "execution_metric": "test_suite_accuracy",
+      "metrics": {
+        "count": 3,
+        "execution": 1.0,
+        "exact_set_match": 1.0,
+        "precision": "Upstream stdout rounded to three decimal places",
+        "hardness_counts": {
+          "easy": 1,
+          "medium": 1,
+          "hard": 0,
+          "extra": 1
+        }
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "duration_seconds": 0.509,
+      "source_databases_unchanged": true,
+      "database_count": 92,
+      "result": {
+        "path": "results/runs/phase3-verified/evaluation/smoke-gold/result.json",
+        "sha256": "39668c954e89388f0d51f62d9e8a031c31eb3c1902b78569e4cdfa0a2aeceb73",
+        "bytes": 17355
+      },
+      "logs": {
+        "stdout": {
+          "path": "results/runs/phase3-verified/evaluation/smoke-gold/stdout.log",
+          "sha256": "2e07f4ef79cac2989051435ae602f9539a0d5c836b7139be4dc145475a96c509",
+          "bytes": 4633
+        },
+        "stderr": {
+          "path": "results/runs/phase3-verified/evaluation/smoke-gold/stderr.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        }
+      }
+    },
+    "smoke-wrong": {
+      "status": "completed",
+      "evaluator_revision": "e97acc546ecbee8fa27fa8dbf025ef61493a876c",
+      "flags": {
+        "etype": "all",
+        "plug_value": false,
+        "keep_distinct": true
+      },
+      "database_mode": "test-suite",
+      "execution_metric": "test_suite_accuracy",
+      "metrics": {
+        "count": 3,
+        "execution": 0.0,
+        "exact_set_match": 0.0,
+        "precision": "Upstream stdout rounded to three decimal places",
+        "hardness_counts": {
+          "easy": 1,
+          "medium": 1,
+          "hard": 0,
+          "extra": 1
+        }
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "duration_seconds": 0.396,
+      "source_databases_unchanged": true,
+      "database_count": 92,
+      "result": {
+        "path": "results/runs/phase3-verified/evaluation/smoke-wrong/result.json",
+        "sha256": "749fe93b89dc1ec8ea3ed23f1b694ed1a2291b4e33e87468f5e3abbb18bdca12",
+        "bytes": 17362
+      },
+      "logs": {
+        "stdout": {
+          "path": "results/runs/phase3-verified/evaluation/smoke-wrong/stdout.log",
+          "sha256": "74128be4099e49c9079946808f6fbcad243481d2461d07ad232e9e4b3dbc5aee",
+          "bytes": 5138
+        },
+        "stderr": {
+          "path": "results/runs/phase3-verified/evaluation/smoke-wrong/stderr.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        }
+      }
+    },
+    "smoke-invalid": {
+      "status": "completed",
+      "evaluator_revision": "e97acc546ecbee8fa27fa8dbf025ef61493a876c",
+      "flags": {
+        "etype": "all",
+        "plug_value": false,
+        "keep_distinct": true
+      },
+      "database_mode": "test-suite",
+      "execution_metric": "test_suite_accuracy",
+      "metrics": {
+        "count": 3,
+        "execution": 0.0,
+        "exact_set_match": 0.0,
+        "precision": "Upstream stdout rounded to three decimal places",
+        "hardness_counts": {
+          "easy": 1,
+          "medium": 1,
+          "hard": 0,
+          "extra": 1
+        }
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "duration_seconds": 0.351,
+      "source_databases_unchanged": true,
+      "database_count": 92,
+      "result": {
+        "path": "results/runs/phase3-verified/evaluation/smoke-invalid/result.json",
+        "sha256": "f68cea33f9b5628df05c544a69dc02f37148ada06b111331ac06cdbf406cc07f",
+        "bytes": 17373
+      },
+      "logs": {
+        "stdout": {
+          "path": "results/runs/phase3-verified/evaluation/smoke-invalid/stdout.log",
+          "sha256": "291d543d67c6726518d0ec7e450263e7fc870df3ad1269c5b0e0656170a7b487",
+          "bytes": 5087
+        },
+        "stderr": {
+          "path": "results/runs/phase3-verified/evaluation/smoke-invalid/stderr.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        }
+      }
+    },
+    "jsonl-gold": {
+      "status": "completed",
+      "evaluator_revision": "e97acc546ecbee8fa27fa8dbf025ef61493a876c",
+      "flags": {
+        "etype": "all",
+        "plug_value": false,
+        "keep_distinct": true
+      },
+      "database_mode": "test-suite",
+      "execution_metric": "test_suite_accuracy",
+      "metrics": {
+        "count": 3,
+        "execution": 1.0,
+        "exact_set_match": 1.0,
+        "precision": "Upstream stdout rounded to three decimal places",
+        "hardness_counts": {
+          "easy": 1,
+          "medium": 1,
+          "hard": 0,
+          "extra": 1
+        }
+      },
+      "exit_code": 0,
+      "timed_out": false,
+      "duration_seconds": 0.452,
+      "source_databases_unchanged": true,
+      "database_count": 92,
+      "result": {
+        "path": "results/runs/phase3-verified/evaluation/jsonl-gold/result.json",
+        "sha256": "46b55681710eecf8f76d39e640171786526f75aef780a476e2fc28185ff50dd1",
+        "bytes": 17753
+      },
+      "logs": {
+        "stdout": {
+          "path": "results/runs/phase3-verified/evaluation/jsonl-gold/stdout.log",
+          "sha256": "2e07f4ef79cac2989051435ae602f9539a0d5c836b7139be4dc145475a96c509",
+          "bytes": 4633
+        },
+        "stderr": {
+          "path": "results/runs/phase3-verified/evaluation/jsonl-gold/stderr.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "bytes": 0
+        }
+      }
+    }
+  },
+  "missing_prediction_probe": {
+    "exit_code": 2,
+    "expected_count": 3,
+    "received_count": 1,
+    "evaluation_directory_created": false
+  },
+  "submodules": {
+    "few-shot": {
+      "revision": "fe9d2ea39711dafaba7e0f0621513b9ab9646187",
+      "clean": true
+    },
+    "mac-sql": {
+      "revision": "f8ca56f20192fe85b65a2542f917f820910e80d6",
+      "clean": true
+    },
+    "dail-sql": {
+      "revision": "7df99e15d8916a35711ff13735fd5ee01262c10e",
+      "clean": true
+    },
+    "evaluator": {
+      "revision": "e97acc546ecbee8fa27fa8dbf025ef61493a876c",
+      "clean": true
+    }
+  },
+  "doctor": {
+    "exit_code": 0,
+    "warning_names": [
+      "Test-suite provenance",
+      "DAIL resources",
+      "runtime scope"
+    ]
+  },
+  "checks": {
+    "unittest": {
+      "tests": 29,
+      "passed": 29,
+      "skipped": 0
+    },
+    "ruff_check": "passed",
+    "ruff_format_check": "passed"
+  },
+  "nltk_resources": {
+    "sent_starters.txt": {
+      "sha256": "f3f8535483e1dba487241b764945168123bca3209a9645e59acd1225dc76edac",
+      "bytes": 241
+    },
+    "abbrev_types.txt": {
+      "sha256": "92a3e070f43d9b4c5534758ca40ad7343b04e7e29bfe0c2eb658a39445a4f779",
+      "bytes": 619
+    },
+    "ortho_context.tab": {
+      "sha256": "4bbcca25ed3d3f06c02402abf8419b9f033b8adc06e7b482eca4e45f81a5dc4c",
+      "bytes": 236303
+    },
+    "collocations.tab": {
+      "sha256": "8e2da1225e4dd2cc9dba261ee231ccb134859e21b46006e7f472c5ee269af0cf",
+      "bytes": 594
+    }
+  },
+  "source_files": {
+    "src/test2sql/__init__.py": "fee66c3ef578550bb2ad28ce11a6944eb3770cc1a24295d3c78bef1c1fdc153a",
+    "src/test2sql/artifacts.py": "67e4d9125b253218cf2acbca503cca86c0df38c120610580c186ff70ca7a59f9",
+    "src/test2sql/cli.py": "e18886d917a767bec593e528fc7ce07265e60355c201a031c459df1acb36840a",
+    "src/test2sql/config.py": "b2178f07dc6d86aa062952ec49ff954d5c79dd2a57f0d235872d758c12da5f90",
+    "src/test2sql/datasets/__init__.py": "cbb29c6af671f01cd659912ec9eb9129a14e53df5d27742842e094d9d7bb44e5",
+    "src/test2sql/datasets/archives.py": "471bbf99dd7f9e53bfda241bc04e4e60de78b89a14ddf2f0b30baf2fa1644a6b",
+    "src/test2sql/datasets/spider.py": "2e859ec30d7c6670b959a6347827907454d51d3454e047012f8785702a51d9a8",
+    "src/test2sql/doctor.py": "343d9917bae5dcd32f0fac7df7a147b049ed13e68174a5a2a2a7900903a73cbf",
+    "src/test2sql/evaluation/__init__.py": "18543353fb64a0c3a25d0778b16979f85c92801df52ea357cbbc8696b2e73c1f",
+    "src/test2sql/evaluation/runner.py": "5895e35d3757f35a1adfb1b4b5fb5ee43f8ba91ae4c0b7d39ae42b3ef130bb68",
+    "src/test2sql/evaluation/smoke.py": "71605313597890fcbcf305d3d83e607ec4c097e77d56885464d4598c469b6624",
+    "src/test2sql/runner.py": "31648df7c3e9697de659d81045c92e1f19787a549d331d5895babd6252feed1b"
+  }
+}

@@ -72,7 +72,7 @@ def plan(config, method, split="dev", limit=None, run_id=None):
                     "--db_path",
                     run / "input/database",
                     "--tables_json_path",
-                    config.spider / "tables.json",
+                    run / "input/tables.json",
                     "--output_file",
                     output,
                     "--log_file",
