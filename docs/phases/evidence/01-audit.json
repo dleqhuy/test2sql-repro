@@ -1,0 +1,309 @@
+{
+  "date": "2026-10-19",
+  "python": "3.14.3",
+  "scope": "Static AST audit, isolated parser probes, and full --help attempts only; no inference or dataset evaluation.",
+  "repositories": {
+    "few-shot": {
+      "commit": "fe9d2ea39711dafaba7e0f0621513b9ab9646187",
+      "branch": "main",
+      "remote": "https://github.com/dleqhuy/Few-shot-NL2SQL-with-prompting.git",
+      "python_sources": {
+        "AnalysisResults.py": "341a2a1cd273e8e213e3add14cf457ee46c1179ce330796e871c9507e1baa77d",
+        "DIN-SQL.py": "90bb42f38ff56143cd39108aad6392f1a0d489ee3a77bca87f06310ee1255d85",
+        "DIN-SQL_BIRD.py": "d9e27126d909b1f405db11bd83f5f157b58704dfbd87abc32156a2039c471542",
+        "llm_provider.py": "45191bc98550957cef0cfc272df416334f89bec556f8f5cee705aebdb124490a",
+        "tests/test_llm_provider.py": "4dd5bec85269a9886ae2927aae1bf46dc03df68ae2dedb9e289755ac2d2f5e41"
+      },
+      "requirements_sha256": "12e2a4409fef14394baf152adcc9191b567f48968b3b830723cf3f297ddee2e9",
+      "help_attempts": {
+        "DIN-SQL.py": {
+          "command": [
+            "python3",
+            "-B",
+            "DIN-SQL.py",
+            "--help"
+          ],
+          "exit_code": 1,
+          "stdout": "",
+          "stderr": "Traceback (most recent call last):\n  File \"/private/tmp/test2sql-phase1-audit/few-shot/DIN-SQL.py\", line 1, in <module>\n    import pandas as pd\nModuleNotFoundError: No module named 'pandas'\n"
+        }
+      },
+      "parser_probes": {},
+      "working_tree_after": ""
+    },
+    "MAC-SQL": {
+      "commit": "f8ca56f20192fe85b65a2542f917f820910e80d6",
+      "branch": "main",
+      "remote": "https://github.com/dleqhuy/MAC-SQL.git",
+      "python_sources": {
+        "core/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "core/agents.py": "fd65c9a30d4ed2e7f6c6b36a33ab63e89d8d248be80699c9a09b6864adbc7cda",
+        "core/api_config.py": "daf402c671a0af7e8d75a5b597da60d2f17ff03677adc64fced4af5a78120924",
+        "core/chat_manager.py": "16fb8abb65e061f657991308e0bbac5352ebf05e5d3664326599b7353b20570a",
+        "core/const.py": "dcf385e3f5cb13c12c418e8fd92b7b13d9cf1b470348414a750113e4d4ebaeae",
+        "core/llm.py": "aeb1604f50429039e234f26579a6db3fcb471fceafd34ed69443aea7a13d8209",
+        "core/utils.py": "71dfd61513c4c46105aaf7d9d938b1a8f49cc70ed31879fc84dd1f23692bb99d",
+        "evaluation/evaluation_bird_ex.py": "321c4c7c144feab33771d075e3e248b6a16f40f6911fa91f1b1a97f0e61a7e85",
+        "evaluation/evaluation_bird_ves.py": "be4edeac8997312997a8c9798f960a1d6d977ef899e61415754206a8de9789f6",
+        "evaluation/evaluation_spider.py": "99d2cb897a47f6ef9314eb4898e4d96a5c720347c73290bba0f0a7796fc31d57",
+        "evaluation/exec_eval.py": "0cfb8b30dc3cc764a0b033c80341dab066ae6e7d27331252e44f8eb0ce256d95",
+        "evaluation/parse.py": "ef04211a6e1c1e142571157f5c1999613e3451084c044083b2de1977f1f622c5",
+        "evaluation/process_sql.py": "927fc564f7a8e34f09f009a2f5564a83fdf95226440dde84c87871fd65fe55a1",
+        "run.py": "8f233f872bfd670c199a4fbb7198ff3eec9e6d412a0b9b5d0ed4c6bc8b214511",
+        "scripts/app_bird.py": "4a66e7f8d89a58ad55e25cc6c00ecb0c14f8fc86d167661daaf570c27908603e",
+        "scripts/app_spider.py": "1370e6fb42225cd100b4da23c830cb01057fc02def55c0ada8c534caabd79093",
+        "scripts/fastchat_demo.py": "f93483a72fc01e398f93a01515fbe66243b9ec6341ccb33f8e912bf41bb1f564",
+        "tests/test_llm.py": "c7fecf61a28df40a1b625fff0439a8dbe12ddaf28fdbadfe3d6ed0d69ca3fc90",
+        "training_scripts/binarized_data.py": "b12d1f48b10fc3003030c7513c5b297e5e24567f02f3b46419f027f5d9b635c9",
+        "training_scripts/finetuning.py": "959587fc99964d9c21bea6522759dd1d96abde0df94348f6251fad31e3a08d39",
+        "training_scripts/generate.py": "68417cdb0c6bc005834d8d9f9264203a45c66fa50b6bd1b053d8e5511f961acc",
+        "training_scripts/inference.py": "a7c6abefa22490ac85626b41db293463cb7d94bdcf7ea4807b6957729681c779",
+        "training_scripts/utils.py": "305d96c229209ebfc2d3910a38d4997d5a7168c6d366130f34a3ba64180dd889"
+      },
+      "requirements_sha256": "b963361f8844d51baf0ed9812e18a32386d4222ef81ab9e671e25b4c1215e2a8",
+      "help_attempts": {
+        "run.py": {
+          "command": [
+            "python3",
+            "-B",
+            "run.py",
+            "--help"
+          ],
+          "exit_code": 1,
+          "stdout": "",
+          "stderr": "Traceback (most recent call last):\n  File \"/private/tmp/test2sql-phase1-audit/MAC-SQL/run.py\", line 3, in <module>\n    from core.chat_manager import ChatManager\n  File \"/private/tmp/test2sql-phase1-audit/MAC-SQL/core/chat_manager.py\", line 2, in <module>\n    from core.agents import Selector, Decomposer, Refiner\n  File \"/private/tmp/test2sql-phase1-audit/MAC-SQL/core/agents.py\", line 3, in <module>\n    from func_timeout import func_set_timeout, FunctionTimedOut\nModuleNotFoundError: No module named 'func_timeout'\n"
+        }
+      },
+      "parser_probes": {
+        "run.py": {
+          "argv": [
+            "--dataset_name",
+            "spider",
+            "--dataset_mode",
+            "dev",
+            "--input_file",
+            "/run/subset.json",
+            "--db_path",
+            "/data/database",
+            "--tables_json_path",
+            "/data/tables.json",
+            "--output_file",
+            "/run/raw/mac.jsonl",
+            "--log_file",
+            "/run/logs/mac.log"
+          ],
+          "parsed": {
+            "dataset_name": "spider",
+            "dataset_mode": "dev",
+            "input_file": "/run/subset.json",
+            "db_path": "/data/database",
+            "tables_json_path": "/data/tables.json",
+            "output_file": "/run/raw/mac.jsonl",
+            "log_file": "/run/logs/mac.log",
+            "start_pos": 0,
+            "use_gold_schema": false,
+            "without_selector": false
+          }
+        }
+      },
+      "working_tree_after": ""
+    },
+    "DAIL-SQL": {
+      "commit": "7df99e15d8916a35711ff13735fd5ee01262c10e",
+      "branch": "main",
+      "remote": "https://github.com/dleqhuy/DAIL-SQL.git",
+      "python_sources": {
+        "ask_llm.py": "168ae70193e8d0b3a6e5878dc43bcb4b1fff757b255bf1886d7be827e9bf410b",
+        "data_preprocess.py": "2b0624b12e43bba5d0ed01fc0de64780f9a68d41ec7bf8e8db10aa144d5e2a70",
+        "generate_question.py": "7b548fa2631d354a414863903bc028a3098012168f5f4fa453530c8655595187",
+        "llm/chatgpt.py": "7cf195b6f41ebabb5f4c69299c717201fa0008e1cb6a378715a98590ed16334f",
+        "nltk_downloader.py": "cccb24d71c1b6117c1101b442c8b820cba7d1e55179e9c1d780fa49c81e4d983",
+        "prompt/ExampleFormatTemplate.py": "986a891e1e102891f310405c3c6701164b76bf74c3b51fbb48f482e5d2903125",
+        "prompt/ExampleSelectorTemplate.py": "37349f60764f4821a7cc566130805abbafc5903917e17a2bb34f9b4a35eef7cb",
+        "prompt/PromptICLTemplate.py": "d0b3bf2c45f3de63c485f28a04a6bb43b6fad825dacd22e61da76dce4a74f1c6",
+        "prompt/PromptReprTemplate.py": "77fdbea41b8b147d2e824b237d1bf45b26729d8e05f9801b1130cf703c09dd61",
+        "prompt/prompt_builder.py": "b382cf37a5325a561697e74081ed11861d82738e5b728c5819483192962b5a62",
+        "to_bird_output.py": "a5badb4167fcd110f66989a93612b2453f5c8ae9424cc3991c6c269331f93502",
+        "utils/data_builder.py": "4625df624d4f676aa2cb49b6ba269b656248016b86b12b7c702f33f9f92bb409",
+        "utils/datasets/spider.py": "8a513867aae8703ab7dbfd3628330a4445f8a6cbecba7cfa52669a62bd793231",
+        "utils/enums.py": "06fef71f59e35d2ca8cb4e270be3a0fbbb0587b9b7a868d2b9b3ea6116121863",
+        "utils/linking_process.py": "8692a0f3553d4dc9a2708283273a45672818365624c1fbd43d19c90f8f31cfbc",
+        "utils/linking_utils/abstract_preproc.py": "9f7c52de361e54ecaac8c55ea5888aeeef55ef2f23990354d2e456e295b68ee0",
+        "utils/linking_utils/application.py": "74f4b6aa1789aaed7eba0b16547c39f63dc6cf91d8c0107d041c090ca49f11e9",
+        "utils/linking_utils/corenlp.py": "4b7294299f038774412fef8f630455937124abec30a5a4f9fee743ac6a5b008c",
+        "utils/linking_utils/serialization.py": "94f5f4e4a2cf795aa4081aae708dabecbd763048309d1faa60c21ab1a9a0c91e",
+        "utils/linking_utils/spider_match_utils.py": "1af4c6cffe42199d5dbf6e265caa8c6ed4f305382b9e4216c777884a883be26d",
+        "utils/post_process.py": "37267adeb59a1e783c296c8dc76428dac285cc20e4783998ae9985ed3a49d8d5",
+        "utils/pretrained_embeddings.py": "ebbd15989b01bbfd76e955adfff681d60e02f7f320739ba21cf6f2928378c771",
+        "utils/utils.py": "102aa79029b43de5af81f88890212d954d57005d353372855b2bc1e4f8f5ee56"
+      },
+      "requirements_sha256": "63cd072051f379710b0143152d7db81a0fb704ab688fb69ae4e5b913fea7dc58",
+      "help_attempts": {
+        "data_preprocess.py": {
+          "command": [
+            "python3",
+            "-B",
+            "data_preprocess.py",
+            "--help"
+          ],
+          "exit_code": 1,
+          "stdout": "",
+          "stderr": "Traceback (most recent call last):\n  File \"/private/tmp/test2sql-phase1-audit/DAIL-SQL/data_preprocess.py\", line 7, in <module>\n    from tqdm import tqdm\nModuleNotFoundError: No module named 'tqdm'\n"
+        },
+        "generate_question.py": {
+          "command": [
+            "python3",
+            "-B",
+            "generate_question.py",
+            "--help"
+          ],
+          "exit_code": 1,
+          "stdout": "",
+          "stderr": "Traceback (most recent call last):\n  File \"/private/tmp/test2sql-phase1-audit/DAIL-SQL/generate_question.py\", line 8, in <module>\n    from prompt.prompt_builder import prompt_factory\n  File \"/private/tmp/test2sql-phase1-audit/DAIL-SQL/prompt/prompt_builder.py\", line 4, in <module>\n    from prompt.PromptReprTemplate import *\n  File \"/private/tmp/test2sql-phase1-audit/DAIL-SQL/prompt/PromptReprTemplate.py\", line 1, in <module>\n    from utils.utils import get_sql_for_database\n  File \"/private/tmp/test2sql-phase1-audit/DAIL-SQL/utils/utils.py\", line 7, in <module>\n    from transformers import AutoTokenizer\nModuleNotFoundError: No module named 'transformers'\n"
+        },
+        "ask_llm.py": {
+          "command": [
+            "python3",
+            "-B",
+            "ask_llm.py",
+            "--help"
+          ],
+          "exit_code": 1,
+          "stdout": "",
+          "stderr": "Traceback (most recent call last):\n  File \"/private/tmp/test2sql-phase1-audit/DAIL-SQL/ask_llm.py\", line 5, in <module>\n    import openai\nModuleNotFoundError: No module named 'openai'\n"
+        }
+      },
+      "parser_probes": {
+        "data_preprocess.py": {
+          "argv": [
+            "--data_type",
+            "spider",
+            "--data_dir",
+            "/run/dataset/spider"
+          ],
+          "parsed": {
+            "data_dir": "/run/dataset/spider",
+            "data_type": "spider"
+          }
+        },
+        "generate_question.py": {
+          "argv": [
+            "--data_type",
+            "spider",
+            "--split",
+            "test",
+            "--tokenizer",
+            "gpt-3.5-turbo",
+            "--max_seq_len",
+            "4096",
+            "--prompt_repr",
+            "SQL",
+            "--k_shot",
+            "9",
+            "--example_type",
+            "QA",
+            "--selector_type",
+            "EUCDISMASKPRESKLSIMTHR",
+            "--pre_test_result",
+            "/run/pre.txt"
+          ],
+          "parsed": {
+            "data_type": "spider",
+            "split": "test",
+            "k_shot": 9,
+            "prompt_repr": "SQL",
+            "example_type": "QA",
+            "selector_type": "EUCDISMASKPRESKLSIMTHR",
+            "max_seq_len": 4096,
+            "max_ans_len": 200,
+            "tokenizer": "gpt-3.5-turbo",
+            "scope_factor": 100,
+            "pre_test_result": "/run/pre.txt"
+          }
+        },
+        "ask_llm.py": {
+          "argv": [
+            "--question",
+            "/run/prompts",
+            "--n",
+            "1",
+            "--batch_size",
+            "1",
+            "--start_index",
+            "0",
+            "--end_index",
+            "3"
+          ],
+          "parsed": {
+            "question": "/run/prompts",
+            "openai_group_id": null,
+            "model": "audit-model",
+            "start_index": 0,
+            "end_index": 3,
+            "temperature": 0,
+            "mini_index_path": "",
+            "batch_size": 1,
+            "n": 1,
+            "db_dir": "dataset/spider/database"
+          }
+        }
+      },
+      "working_tree_after": ""
+    },
+    "test-suite-sql-eval": {
+      "commit": "e97acc546ecbee8fa27fa8dbf025ef61493a876c",
+      "branch": "master",
+      "remote": "https://github.com/taoyds/test-suite-sql-eval.git",
+      "python_sources": {
+        "evaluate_classical.py": "81f6e3977869d99bf5ec52ff76ab0ae8e5c6975afa9236ecd5b0ca065857a49a",
+        "evaluation.py": "7401e4014a8955376a7919c06903a7f0ab403c99e89f94204cd8f4c8e32ae779",
+        "exec_eval.py": "29d034db28904490c28037537a14fbb0150b6e86cef0049076c0511d6b6b77f7",
+        "exec_subprocess.py": "1366694f8ad4d80cdd8fb45eb8c34f48f101fa88c3e0792bd3519f6bbe8530d9",
+        "parse.py": "ef04211a6e1c1e142571157f5c1999613e3451084c044083b2de1977f1f622c5",
+        "process_sql.py": "927fc564f7a8e34f09f009a2f5564a83fdf95226440dde84c87871fd65fe55a1"
+      },
+      "requirements_sha256": null,
+      "help_attempts": {
+        "evaluation.py": {
+          "command": [
+            "python3",
+            "-B",
+            "evaluation.py",
+            "--help"
+          ],
+          "exit_code": 1,
+          "stdout": "",
+          "stderr": "Traceback (most recent call last):\n  File \"/private/tmp/test2sql-phase1-audit/test-suite-sql-eval/evaluation.py\", line 27, in <module>\n    from process_sql import get_schema, Schema, get_sql\n  File \"/private/tmp/test2sql-phase1-audit/test-suite-sql-eval/process_sql.py\", line 29, in <module>\n    from nltk import word_tokenize\nModuleNotFoundError: No module named 'nltk'\n"
+        }
+      },
+      "parser_probes": {
+        "evaluation.py": {
+          "argv": [
+            "--gold",
+            "/run/gold.sql",
+            "--pred",
+            "/run/pred.sql",
+            "--db",
+            "/data/test-suite",
+            "--table",
+            "/data/tables.json",
+            "--etype",
+            "all",
+            "--keep_distinct"
+          ],
+          "parsed": {
+            "gold": "/run/gold.sql",
+            "pred": "/run/pred.sql",
+            "db": "/data/test-suite",
+            "table": "/data/tables.json",
+            "etype": "all",
+            "plug_value": false,
+            "keep_distinct": true,
+            "progress_bar_for_each_datapoint": false
+          }
+        }
+      },
+      "working_tree_after": ""
+    }
+  }
+}
