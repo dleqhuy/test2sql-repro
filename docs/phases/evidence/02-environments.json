@@ -1,0 +1,491 @@
+{
+  "date": "2026-10-19",
+  "platform": "macOS-27.0.1-arm64-arm-64bit-Mach-O",
+  "machine": "arm64",
+  "uv": "uv 0.12.19 (Homebrew 2026-09-24 aarch64-apple-darwin)",
+  "scope": "Dependency consistency, imports, full CLI help only; no LLM, model weights, preprocessing or benchmark.",
+  "environments": {
+    "few-shot": {
+      "python_minor": "3.10",
+      "project": "environments/few-shot",
+      "environment": ".venvs/few-shot",
+      "revision": "fe9d2ea39711dafaba7e0f0621513b9ab9646187",
+      "lock_sha256": "babdd86dfa26976c2852eaaa0cca58218bed86e3e70b306125c48d5a07b43ae8",
+      "checks": [
+        {
+          "label": "metadata",
+          "command": [
+            "/Users/huyduong/Documents/github/test2sql-repro/.venvs/few-shot/bin/python",
+            "-c",
+            "import json, platform; from importlib.metadata import distributions; print(json.dumps({\"python\": platform.python_version(), \"packages\": {d.metadata[\"Name\"]: d.version for d in distributions()}}))"
+          ],
+          "cwd": "/Users/huyduong/Documents/github/test2sql-repro",
+          "exit_code": 0,
+          "stderr": ""
+        },
+        {
+          "label": "dependency-consistency",
+          "command": [
+            "uv",
+            "pip",
+            "check",
+            "--python",
+            "/Users/huyduong/Documents/github/test2sql-repro/.venvs/few-shot/bin/python"
+          ],
+          "cwd": "/Users/huyduong/Documents/github/test2sql-repro",
+          "exit_code": 1,
+          "stdout": "",
+          "stderr": "Using Python 3.10.21 environment at: .venvs/few-shot\nChecked 57 packages in 52ms\nFound 1 incompatibility\nThe package `torch` was built for a different platform\n"
+        },
+        {
+          "label": "imports",
+          "command": [
+            "/Users/huyduong/Documents/github/test2sql-repro/.venvs/few-shot/bin/python",
+            "-B",
+            "-c",
+            "import pandas, openai, dotenv, langchain, datasets, sentence_transformers"
+          ],
+          "cwd": "/Users/huyduong/Documents/github/test2sql-repro",
+          "exit_code": 0,
+          "stdout": "",
+          "stderr": ""
+        }
+      ],
+      "python": "3.10.21",
+      "packages": {
+        "typing_extensions": "4.5.0",
+        "multidict": "6.0.4",
+        "torchvision": "0.14.1",
+        "certifi": "2022.12.7",
+        "fsspec": "2023.3.0",
+        "aiosignal": "1.3.1",
+        "dataclasses-json": "0.5.14",
+        "marshmallow": "3.26.2",
+        "python-dateutil": "2.8.2",
+        "responses": "0.18.0",
+        "async-timeout": "4.0.2",
+        "langchainplus-sdk": "0.0.20",
+        "requests": "2.28.2",
+        "numexpr": "2.14.1",
+        "six": "1.16.0",
+        "filelock": "3.9.0",
+        "typing-inspect": "0.9.0",
+        "openai": "0.27.0",
+        "pytz": "2022.7.1",
+        "click": "8.1.3",
+        "pyarrow": "11.0.0",
+        "openapi-schema-pydantic": "1.2.4",
+        "scipy": "1.10.1",
+        "urllib3": "1.26.14",
+        "dill": "0.3.6",
+        "xxhash": "3.2.0",
+        "transformers": "4.26.1",
+        "idna": "3.4",
+        "python-dotenv": "1.0.1",
+        "numpy": "1.24.2",
+        "joblib": "1.2.0",
+        "sentencepiece": "0.1.97",
+        "PyYAML": "6.0",
+        "SQLAlchemy": "1.4.48",
+        "nltk": "3.8.1",
+        "torch": "1.13.1",
+        "tenacity": "8.5.0",
+        "tokenizers": "0.13.2",
+        "Pillow": "9.4.0",
+        "regex": "2022.10.31",
+        "langchain": "0.0.200",
+        "frozenlist": "1.3.3",
+        "attrs": "22.2.0",
+        "datasets": "2.10.1",
+        "pandas": "1.5.3",
+        "scikit-learn": "1.2.1",
+        "huggingface-hub": "0.12.1",
+        "tqdm": "4.65.0",
+        "packaging": "23.0",
+        "sentence-transformers": "2.2.2",
+        "pydantic": "1.10.26",
+        "aiohttp": "3.8.4",
+        "yarl": "1.8.2",
+        "charset-normalizer": "3.1.0",
+        "mypy_extensions": "1.1.0",
+        "threadpoolctl": "3.1.0",
+        "multiprocess": "0.70.14"
+      },
+      "source_working_tree_after": "",
+      "torch_wheel_metadata": {
+        "wheel_file": ".venvs/few-shot/lib/python3.10/site-packages/torch-1.13.1.dist-info/WHEEL",
+        "contents": "Wheel-Version: 1.0\nGenerator: bdist_wheel (0.37.1)\nRoot-Is-Purelib: false\nTag: cp310-cp310-macosx_11_0_x86_64\n\n",
+        "binary_architecture": "/Users/huyduong/Documents/github/test2sql-repro/.venvs/few-shot/lib/python3.10/site-packages/torch/_C.cpython-310-darwin.so: Mach-O 64-bit bundle arm64",
+        "explanation": "uv pip check reports a platform mismatch: upstream torch 1.13.1 ARM64 wheel contains an x86_64 WHEEL tag. Installed extension is ARM64 and imports pass. Metadata is unmodified; uv sync may reinstall this package."
+      },
+      "status": "passed-with-torch-platform-metadata-warning",
+      "include_system_site_packages": false
+    },
+    "mac-sql": {
+      "python_minor": "3.9",
+      "project": "environments/mac-sql",
+      "environment": ".venvs/mac-sql",
+      "revision": "f8ca56f20192fe85b65a2542f917f820910e80d6",
+      "lock_sha256": "c6bbd7d7af59176b62c5f4fb7e179aa7f44f5e9b835030b8539f7fe3fa40cb25",
+      "checks": [
+        {
+          "label": "metadata",
+          "command": [
+            "/Users/huyduong/Documents/github/test2sql-repro/.venvs/mac-sql/bin/python",
+            "-c",
+            "import json, platform; from importlib.metadata import distributions; print(json.dumps({\"python\": platform.python_version(), \"packages\": {d.metadata[\"Name\"]: d.version for d in distributions()}}))"
+          ],
+          "cwd": "/Users/huyduong/Documents/github/test2sql-repro",
+          "exit_code": 0,
+          "stderr": ""
+        },
+        {
+          "label": "dependency-consistency",
+          "command": [
+            "uv",
+            "pip",
+            "check",
+            "--python",
+            "/Users/huyduong/Documents/github/test2sql-repro/.venvs/mac-sql/bin/python"
+          ],
+          "cwd": "/Users/huyduong/Documents/github/test2sql-repro",
+          "exit_code": 0,
+          "stdout": "",
+          "stderr": "Using Python 3.9.25 environment at: .venvs/mac-sql\nChecked 38 packages in 1ms\nAll installed packages are compatible\n"
+        },
+        {
+          "label": "imports",
+          "command": [
+            "/Users/huyduong/Documents/github/test2sql-repro/.venvs/mac-sql/bin/python",
+            "-B",
+            "-c",
+            "import openai, pandas, func_timeout, tiktoken, nltk, flask"
+          ],
+          "cwd": "/Users/huyduong/Documents/github/test2sql-repro",
+          "exit_code": 0,
+          "stdout": "",
+          "stderr": ""
+        },
+        {
+          "label": "help:run.py",
+          "command": [
+            "/Users/huyduong/Documents/github/test2sql-repro/.venvs/mac-sql/bin/python",
+            "-B",
+            "run.py",
+            "--help"
+          ],
+          "cwd": "/tmp/test2sql-phase1-audit/MAC-SQL",
+          "exit_code": 0,
+          "stdout": "usage: run.py [-h] [--dataset_name {spider,bird}]\n              [--dataset_mode {train,dev,test}] --input_file INPUT_FILE\n              --db_path DB_PATH [--tables_json_path TABLES_JSON_PATH]\n              --output_file OUTPUT_FILE [--log_file LOG_FILE]\n              [--start_pos START_POS] [--use_gold_schema] [--without_selector]\n\noptional arguments:\n  -h, --help            show this help message and exit\n  --dataset_name {spider,bird}\n                        dataset name\n  --dataset_mode {train,dev,test}\n                        dataset mode\n  --input_file INPUT_FILE\n                        path to dataset input\n  --db_path DB_PATH     path to databases in dataset\n  --tables_json_path TABLES_JSON_PATH\n                        path to tables.json\n  --output_file OUTPUT_FILE\n                        path to predicted output\n  --log_file LOG_FILE   path to log file if needed\n  --start_pos START_POS\n                        start position of a batch\n  --use_gold_schema\n  --without_selector\n",
+          "stderr": ""
+        }
+      ],
+      "python": "3.9.25",
+      "packages": {
+        "Flask": "3.1.3",
+        "async-timeout": "5.0.1",
+        "requests": "2.32.5",
+        "multidict": "6.7.1",
+        "pytz": "2026.5",
+        "aiohttp": "3.13.5",
+        "propcache": "0.4.1",
+        "blinker": "1.9.0",
+        "openai": "0.28.1",
+        "itsdangerous": "2.2.0",
+        "click": "8.1.8",
+        "numpy": "2.0.2",
+        "tzdata": "2026.5",
+        "func_timeout": "4.3.5",
+        "tqdm": "4.70.1",
+        "regex": "2026.1.15",
+        "importlib_metadata": "8.7.1",
+        "python-dateutil": "2.9.0.post0",
+        "certifi": "2026.10.18",
+        "urllib3": "2.6.3",
+        "frozenlist": "1.8.0",
+        "aiosignal": "1.4.0",
+        "zipp": "3.23.1",
+        "joblib": "1.5.3",
+        "Jinja2": "3.1.6",
+        "pandas": "2.3.3",
+        "attrs": "26.1.0",
+        "aiohappyeyeballs": "2.6.1",
+        "tiktoken": "0.14.0",
+        "nltk": "3.9.2",
+        "typing_extensions": "4.16.0",
+        "MarkupSafe": "3.0.4",
+        "charset-normalizer": "3.5.2",
+        "six": "1.17.0",
+        "yarl": "1.22.0",
+        "idna": "3.20",
+        "sqlparse": "0.5.5",
+        "Werkzeug": "3.1.9"
+      },
+      "source_working_tree_after": "",
+      "status": "passed",
+      "include_system_site_packages": false
+    },
+    "dail-sql": {
+      "python_minor": "3.8",
+      "project": "environments/dail-sql",
+      "environment": ".venvs/dail-sql",
+      "revision": "7df99e15d8916a35711ff13735fd5ee01262c10e",
+      "lock_sha256": "f24a2241d0095da8efd1e2408156409b1e2da7a6f840408679586e676e4926c5",
+      "checks": [
+        {
+          "label": "metadata",
+          "command": [
+            "/Users/huyduong/Documents/github/test2sql-repro/.venvs/dail-sql/bin/python",
+            "-c",
+            "import json, platform; from importlib.metadata import distributions; print(json.dumps({\"python\": platform.python_version(), \"packages\": {d.metadata[\"Name\"]: d.version for d in distributions()}}))"
+          ],
+          "cwd": "/Users/huyduong/Documents/github/test2sql-repro",
+          "exit_code": 0,
+          "stderr": ""
+        },
+        {
+          "label": "dependency-consistency",
+          "command": [
+            "uv",
+            "pip",
+            "check",
+            "--python",
+            "/Users/huyduong/Documents/github/test2sql-repro/.venvs/dail-sql/bin/python"
+          ],
+          "cwd": "/Users/huyduong/Documents/github/test2sql-repro",
+          "exit_code": 1,
+          "stdout": "",
+          "stderr": "Using Python 3.8.20 environment at: .venvs/dail-sql\nChecked 48 packages in 1ms\nFound 1 incompatibility\nThe package `torch` was built for a different platform\n"
+        },
+        {
+          "label": "imports",
+          "command": [
+            "/Users/huyduong/Documents/github/test2sql-repro/.venvs/dail-sql/bin/python",
+            "-B",
+            "-c",
+            "import openai, torch, torchtext, transformers, sentence_transformers, corenlp, bpemb, sql_metadata"
+          ],
+          "cwd": "/Users/huyduong/Documents/github/test2sql-repro",
+          "exit_code": 0,
+          "stdout": "",
+          "stderr": ""
+        },
+        {
+          "label": "help:data_preprocess.py",
+          "command": [
+            "/Users/huyduong/Documents/github/test2sql-repro/.venvs/dail-sql/bin/python",
+            "-B",
+            "data_preprocess.py",
+            "--help"
+          ],
+          "cwd": "/tmp/test2sql-phase1-audit/DAIL-SQL",
+          "exit_code": 0,
+          "stdout": "usage: data_preprocess.py [-h] [--data_dir DATA_DIR]\n                          [--data_type {spider,bird}]\n\noptional arguments:\n  -h, --help            show this help message and exit\n  --data_dir DATA_DIR\n  --data_type {spider,bird}\n",
+          "stderr": ""
+        },
+        {
+          "label": "help:generate_question.py",
+          "command": [
+            "/Users/huyduong/Documents/github/test2sql-repro/.venvs/dail-sql/bin/python",
+            "-B",
+            "generate_question.py",
+            "--help"
+          ],
+          "cwd": "/tmp/test2sql-phase1-audit/DAIL-SQL",
+          "exit_code": 0,
+          "stdout": "usage: generate_question.py [-h] [--data_type {spider,realistic,bird}] --split\n                            {train,test} [--k_shot K_SHOT]\n                            [--prompt_repr {SQL,TEXT,NUMBERSIGN,BASELINE,INSTRUCTION,NUMBERSIGNWFK,BASELINEWOFK,TEXTWFK,INSTRUCTIONWFK,NUMBERSIGNWORULE,SQLWRULE,INSTRUCTIONWRULE,TEXTWRULE,SQLCOT,TEXTCOT,NUMBERSIGNCOT,INSTRUCTIONCOT,CBR}]\n                            [--example_type {ONLYSQL,QA,COMPLETE,QAWRULE,NUMBERSIGNQA,BASELINEQA}]\n                            [--selector_type {COSSIMILAR,RANDOM,EUCDISTANCE,EUCDISTANCETHRESHOLD,EUCDISSKLSIMTHR,EUCDISQUESTIONMASK,EUCDISPRESKLSIMTHR,EUCDISPRESKLSIMPLUS,EUCDISMASKPRESKLSIMTHR,EUCDISMASKPRESKLSIMTHRSHIFT}]\n                            [--max_seq_len MAX_SEQ_LEN]\n                            [--max_ans_len MAX_ANS_LEN]\n                            [--tokenizer TOKENIZER]\n                            [--scope_factor SCOPE_FACTOR]\n                            [--pre_test_result PRE_TEST_RESULT]\n\noptional arguments:\n  -h, --help            show this help message and exit\n  --data_type {spider,realistic,bird}\n  --split {train,test}\n  --k_shot K_SHOT       Number of examples\n  --prompt_repr {SQL,TEXT,NUMBERSIGN,BASELINE,INSTRUCTION,NUMBERSIGNWFK,BASELINEWOFK,TEXTWFK,INSTRUCTIONWFK,NUMBERSIGNWORULE,SQLWRULE,INSTRUCTIONWRULE,TEXTWRULE,SQLCOT,TEXTCOT,NUMBERSIGNCOT,INSTRUCTIONCOT,CBR}\n  --example_type {ONLYSQL,QA,COMPLETE,QAWRULE,NUMBERSIGNQA,BASELINEQA}\n  --selector_type {COSSIMILAR,RANDOM,EUCDISTANCE,EUCDISTANCETHRESHOLD,EUCDISSKLSIMTHR,EUCDISQUESTIONMASK,EUCDISPRESKLSIMTHR,EUCDISPRESKLSIMPLUS,EUCDISMASKPRESKLSIMTHR,EUCDISMASKPRESKLSIMTHRSHIFT}\n  --max_seq_len MAX_SEQ_LEN\n                        The maximal length that LLM takes\n  --max_ans_len MAX_ANS_LEN\n                        The maximal length that an answer takes\n  --tokenizer TOKENIZER\n  --scope_factor SCOPE_FACTOR\n                        Times of the searching scope\n  --pre_test_result PRE_TEST_RESULT\n",
+          "stderr": ""
+        },
+        {
+          "label": "help:ask_llm.py",
+          "command": [
+            "/Users/huyduong/Documents/github/test2sql-repro/.venvs/dail-sql/bin/python",
+            "-B",
+            "ask_llm.py",
+            "--help"
+          ],
+          "cwd": "/tmp/test2sql-phase1-audit/DAIL-SQL",
+          "exit_code": 0,
+          "stdout": "usage: ask_llm.py [-h] [--question QUESTION] [--openai_api_key OPENAI_API_KEY]\n                  [--openai_group_id OPENAI_GROUP_ID] [--model MODEL]\n                  [--start_index START_INDEX] [--end_index END_INDEX]\n                  [--temperature TEMPERATURE]\n                  [--mini_index_path MINI_INDEX_PATH]\n                  [--batch_size BATCH_SIZE] [--n N] [--db_dir DB_DIR]\n\noptional arguments:\n  -h, --help            show this help message and exit\n  --question QUESTION\n  --openai_api_key OPENAI_API_KEY\n  --openai_group_id OPENAI_GROUP_ID\n  --model MODEL\n  --start_index START_INDEX\n  --end_index END_INDEX\n  --temperature TEMPERATURE\n  --mini_index_path MINI_INDEX_PATH\n  --batch_size BATCH_SIZE\n  --n N                 Size of self-consistent set\n  --db_dir DB_DIR\n",
+          "stderr": ""
+        }
+      ],
+      "python": "3.8.20",
+      "packages": {
+        "torchvision": "0.14.1",
+        "async-timeout": "5.0.1",
+        "filelock": "3.16.1",
+        "multidict": "6.1.0",
+        "aiosignal": "1.3.1",
+        "nltk": "3.9.1",
+        "gensim": "4.3.3",
+        "urllib3": "2.2.3",
+        "propcache": "0.2.0",
+        "networkx": "3.1",
+        "frozenlist": "1.5.0",
+        "attrs": "25.3.0",
+        "yarl": "1.15.2",
+        "wrapt": "2.0.1",
+        "smart_open": "7.3.1",
+        "openai": "0.28.1",
+        "joblib": "1.4.2",
+        "requests": "2.32.4",
+        "packaging": "26.2",
+        "aiohttp": "3.10.11",
+        "protobuf": "3.20.3",
+        "scipy": "1.10.1",
+        "bpemb": "0.3.6",
+        "click": "8.1.8",
+        "typing_extensions": "4.13.2",
+        "sql_metadata": "2.15.0",
+        "transformers": "4.26.1",
+        "threadpoolctl": "3.5.0",
+        "tqdm": "4.70.1",
+        "regex": "2024.11.6",
+        "certifi": "2026.10.18",
+        "PyYAML": "6.0.3",
+        "numpy": "1.24.4",
+        "scikit-learn": "1.3.2",
+        "torch": "1.13.1",
+        "torchtext": "0.14.1",
+        "pillow": "10.4.0",
+        "sentencepiece": "0.2.0",
+        "huggingface-hub": "0.12.1",
+        "stanford-corenlp": "3.9.2",
+        "sentence-transformers": "2.2.2",
+        "aiohappyeyeballs": "2.4.4",
+        "charset-normalizer": "3.5.2",
+        "tokenizers": "0.13.3",
+        "corenlp-protobuf": "3.8.0",
+        "six": "1.17.0",
+        "idna": "3.15",
+        "sqlparse": "0.5.5"
+      },
+      "source_working_tree_after": "",
+      "nltk_resources": {
+        "stopwords": {
+          "path": ".venvs/dail-sql/nltk_data/corpora/stopwords.zip",
+          "sha256": "48c0e52d8b52546e827f53761fb30300c0ab94f70660d28bd65ba0a86270946b"
+        },
+        "punkt": {
+          "path": ".venvs/dail-sql/nltk_data/tokenizers/punkt.zip",
+          "sha256": "51c3078994aeaf650bfc8e028be4fb42b4a0d177d41c012b6a983979653660ec"
+        },
+        "punkt_tab": {
+          "path": ".venvs/dail-sql/nltk_data/tokenizers/punkt_tab.zip",
+          "sha256": "e57f64187974277726a3417ca6f181ec5403676c717672eef6a748a7b20e0106"
+        }
+      },
+      "torch_wheel_metadata": {
+        "wheel_file": ".venvs/dail-sql/lib/python3.8/site-packages/torch-1.13.1.dist-info/WHEEL",
+        "contents": "Wheel-Version: 1.0\nGenerator: bdist_wheel (0.37.1)\nRoot-Is-Purelib: false\nTag: cp38-cp38-macosx_11_0_x86_64\n\n",
+        "binary_architecture": "/Users/huyduong/Documents/github/test2sql-repro/.venvs/dail-sql/lib/python3.8/site-packages/torch/_C.cpython-38-darwin.so: Mach-O universal binary with 2 architectures: [x86_64:Mach-O 64-bit bundle x86_64] [arm64:Mach-O 64-bit bundle arm64]\n/Users/huyduong/Documents/github/test2sql-repro/.venvs/dail-sql/lib/python3.8/site-packages/torch/_C.cpython-38-darwin.so (for architecture x86_64):\tMach-O 64-bit bundle x86_64\n/Users/huyduong/Documents/github/test2sql-repro/.venvs/dail-sql/lib/python3.8/site-packages/torch/_C.cpython-38-darwin.so (for architecture arm64):\tMach-O 64-bit bundle arm64",
+        "explanation": "uv pip check reports a platform mismatch: upstream torch 1.13.1 ARM64 wheel contains an x86_64 WHEEL tag. Installed extension is ARM64 and imports pass. Metadata is unmodified; uv sync may reinstall this package."
+      },
+      "status": "passed-with-torch-platform-metadata-warning",
+      "include_system_site_packages": false
+    },
+    "evaluator": {
+      "python_minor": "3.10",
+      "project": "environments/evaluator",
+      "environment": ".venvs/evaluator",
+      "revision": "e97acc546ecbee8fa27fa8dbf025ef61493a876c",
+      "lock_sha256": "d947ed7f0b8414f9b7913f81a74afae955863a840729b93b78ace079959b8fec",
+      "checks": [
+        {
+          "label": "metadata",
+          "command": [
+            "/Users/huyduong/Documents/github/test2sql-repro/.venvs/evaluator/bin/python",
+            "-c",
+            "import json, platform; from importlib.metadata import distributions; print(json.dumps({\"python\": platform.python_version(), \"packages\": {d.metadata[\"Name\"]: d.version for d in distributions()}}))"
+          ],
+          "cwd": "/Users/huyduong/Documents/github/test2sql-repro",
+          "exit_code": 0,
+          "stderr": ""
+        },
+        {
+          "label": "dependency-consistency",
+          "command": [
+            "uv",
+            "pip",
+            "check",
+            "--python",
+            "/Users/huyduong/Documents/github/test2sql-repro/.venvs/evaluator/bin/python"
+          ],
+          "cwd": "/Users/huyduong/Documents/github/test2sql-repro",
+          "exit_code": 0,
+          "stdout": "",
+          "stderr": "Using Python 3.10.21 environment at: .venvs/evaluator\nChecked 8 packages in 8ms\nAll installed packages are compatible\n"
+        },
+        {
+          "label": "imports",
+          "command": [
+            "/Users/huyduong/Documents/github/test2sql-repro/.venvs/evaluator/bin/python",
+            "-B",
+            "-c",
+            "import nltk, sqlparse, tqdm"
+          ],
+          "cwd": "/Users/huyduong/Documents/github/test2sql-repro",
+          "exit_code": 0,
+          "stdout": "",
+          "stderr": ""
+        },
+        {
+          "label": "help:evaluation.py",
+          "command": [
+            "/Users/huyduong/Documents/github/test2sql-repro/.venvs/evaluator/bin/python",
+            "-B",
+            "evaluation.py",
+            "--help"
+          ],
+          "cwd": "/tmp/test2sql-phase1-audit/test-suite-sql-eval",
+          "exit_code": 0,
+          "stdout": "usage: evaluation.py [-h] [--gold GOLD] [--pred PRED] [--db DB]\n                     [--table TABLE] [--etype {all,exec,match}] [--plug_value]\n                     [--keep_distinct] [--progress_bar_for_each_datapoint]\n\noptions:\n  -h, --help            show this help message and exit\n  --gold GOLD           the path to the gold queries\n  --pred PRED           the path to the predicted queries\n  --db DB               the directory that contains all the databases and test\n                        suites\n  --table TABLE         the tables.json schema file\n  --etype {all,exec,match}\n                        evaluation type, exec for test suite accuracy, match\n                        for the original exact set match accuracy\n  --plug_value          whether to plug in the gold value into the predicted\n                        query; suitable if your model does not predict values.\n  --keep_distinct       whether to keep distinct keyword during evaluation.\n                        default is false.\n  --progress_bar_for_each_datapoint\n                        whether to print progress bar of running test inputs\n                        for each datapoint\n",
+          "stderr": ""
+        }
+      ],
+      "python": "3.10.21",
+      "packages": {
+        "cloudpickle": "3.1.2",
+        "click": "8.5.0",
+        "joblib": "1.6.0",
+        "defusedxml": "0.7.1",
+        "sqlparse": "0.6.0",
+        "tqdm": "4.70.1",
+        "regex": "2026.9.29",
+        "nltk": "3.10.3"
+      },
+      "source_working_tree_after": "",
+      "status": "passed",
+      "include_system_site_packages": false
+    }
+  },
+  "nltk_download_command": [
+    ".venvs/dail-sql/bin/python",
+    "-m",
+    "nltk.downloader",
+    "-d",
+    ".venvs/dail-sql/nltk_data",
+    "stopwords",
+    "punkt",
+    "punkt_tab"
+  ],
+  "setup_notes": [
+    "Full upstream requirements were installed for DIN and MAC.",
+    "DAIL needed networkx (imported in utils/datasets/spider.py, absent from upstream requirements) and NLTK stopwords for full preprocessing CLI help. Additional tokenizer resources punkt/punkt_tab installed alongside stopwords.",
+    "Root .venv: Python 3.10.21, Ruff 0.17.1."
+  ],
+  "setup_dry_run": {
+    "command": [
+      "uv",
+      "run",
+      "--locked",
+      "python",
+      "scripts/setup_environments.py",
+      "--dry-run"
+    ],
+    "exit_code": 0,
+    "stdout": "few-shot: Python 3.10 -> /Users/huyduong/Documents/github/test2sql-repro/.venvs/few-shot\nmac-sql: Python 3.9 -> /Users/huyduong/Documents/github/test2sql-repro/.venvs/mac-sql\ndail-sql: Python 3.8 -> /Users/huyduong/Documents/github/test2sql-repro/.venvs/dail-sql\nevaluator: Python 3.10 -> /Users/huyduong/Documents/github/test2sql-repro/.venvs/evaluator\n",
+    "stderr": "Would use project environment at: .venvs/few-shot\nResolved 66 packages in 1ms\nWould uninstall 1 package\nWould install 1 package\n ~ torch==1.13.1\nWould use project environment at: .venvs/mac-sql\nResolved 40 packages in 1ms\nChecked 38 packages in 5ms\nWould make no changes\nWould use project environment at: .venvs/dail-sql\nResolved 56 packages in 1ms\nWould uninstall 1 package\nWould install 1 package\n ~ torch==1.13.1\nWould use project environment at: .venvs/evaluator\nResolved 10 packages in 1ms\nChecked 8 packages in 0.78ms\nWould make no changes\n"
+  }
+}
