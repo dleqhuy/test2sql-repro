@@ -1,0 +1,20 @@
+[project]
+name = "test2sql-repro"
+version = "0.1.0"
+description = "Reproducible environments and orchestration for NL2SQL methods"
+requires-python = "==3.10.*"
+dependencies = []
+
+[dependency-groups]
+dev = ["ruff==0.17.1"]
+
+[tool.uv]
+package = false
+
+[tool.ruff]
+target-version = "py310"
+extend-exclude = ["external", ".venvs"]
+force-exclude = true
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "I"]
